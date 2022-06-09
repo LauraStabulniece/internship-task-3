@@ -3,37 +3,35 @@ import { Todo } from "./Models/model";
 import SingleTodo from "./SingleTodo";
 
 interface props {
-  todos: Todo[];
-  setTodos: React.Dispatch<React.SetStateAction<Todo[]>>;
+    todos: Todo[];
+    setTodos: React.Dispatch<React.SetStateAction<Todo[]>>;
 }
 
 const TodoList: React.FC<props> = ({ todos, setTodos }) => {
     return (
         <div className="container">
-                    <div className="todos">
-                       
-                        <span className="todos_heading">Active Tasks</span>
-                        {todos.map((todo) => (
-                            <SingleTodo
-                                todo={todo}
-                                todos={todos}
-                                key={todo.id}
-                                setTodos={setTodos}
-                            />
-                        ))}
-                    </div>
+            <div className="todos">
+                <span className="todos_heading">Active Tasks</span>
+                {todos.map((todo) => (
+                    <SingleTodo
+                        todo={todo}
+                        todos={todos}
+                        key={todo.id}
+                        setTodos={setTodos}
+                    />
+                ))}
+            </div>
             <div className="todos remove">
-                        <span className="todos_heading">Completed Tasks</span>
-                        {todos.map((todo) => (
-                            <SingleTodo
-                            todo={todo}
-                                todos={todos}
-                                key={todo.id}
-                                setTodos={setTodos}
-                            />
-                        ))}
-                    </div>
-                
+                <span className="todos_heading">Completed Tasks</span>
+                {todos.map((todo) => (
+                    <SingleTodo
+                        todo={todo}
+                        todos={todos}
+                        key={todo.id}
+                        setTodos={setTodos}
+                    />
+                ))}
+            </div>
         </div>
     );
 };
